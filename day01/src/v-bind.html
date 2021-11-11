@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+        .b{
+            background: azure;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <a v-bind:href="baidu">baidu</a>
+    <img v-bind:src="img">
+    <div :class="{red:isRed,b:isB}">bbbbb</div>
+    <div :class="getClass()">bbbbb</div>
+    <div :class="['red','b']">bbbbb</div>
+    <div :class="[red,b]">bbbbb</div>
+</div>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            baidu:"http://www.baidu.com",
+            img:"https://img14.360buyimg.com/seckillcms/s140x140_jfs/t1/172129/3/13441/84935/60bd81b3Ea3b6e594/5f828678bded85f2.jpg.webp",
+            isRed:true,
+            isB:true,
+            red:'red',
+            b:'b'
+        },
+        methods: {
+            getClass(){
+                return {red:this.isRed,b:this.isB}
+            }
+        }
+    });
+</script>
+</body>
+</html>

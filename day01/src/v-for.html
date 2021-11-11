@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv">
+  <ul>
+    <li v-on:click="change(i)" :class="{red:isRed==i}" v-for="(item,i) in heros">{{item}}</li>
+  </ul>
+</div>
+<script>
+  const myDiv = new Vue({
+    el:"#myDiv",
+    data:{
+      heros:['na','ck','ds','pa'],
+      isRed: 0
+    },
+      methods:{
+          change(index){
+              this.isRed=index
+          }
+      }
+  })
+</script>
+</body>
+</html>
